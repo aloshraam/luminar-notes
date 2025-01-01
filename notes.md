@@ -541,6 +541,10 @@ AJAX (Asyncronous Javascript and XML) : Method to make API calls using JS
      - send request
  2) API call using fetch API : 
   - fetch() returns a promise, the resolved response will get from `then method`, reject response get from `catch method`
+  
+ 3) API call using axios Library :
+  - Axios is a promise-based HTTP Client for node.js and the browser.
+  
 
   - JS module : used to transfer data from one js file to another 
     - Export statements : used to share data from a js file to another, can be used in 2 types.
@@ -702,3 +706,18 @@ AJAX (Asyncronous Javascript and XML) : Method to make API calls using JS
 
   ## Higher Order COmponent(HOC)
       Components whose props are another component, eg : Route Component
+
+  ## Axios in react
+    - Using Axios Library : insall axios - `npm install axios`
+    - To make a HTTP request using axios : axios(config)
+      - config : is a predefined objext with keys (method, url, data, headers)
+    - HTTP response will always return an object with predefined keys (data(//server response//), status)
+    - Create a services folder inside src of your react app
+
+# JSON server Creation
+
+1) Create a server folder to store json server
+2) we have to create a package.json(npm configuration file) file inside server folder : use command -  `npm init -y `
+3) Install json server package in server folder to run json file, use commmand to insall json-server : `npm i json-server`
+4) Create json(db.json) file for storing project data
+5) To run json file and available in browser port use command in server folder : `npx json-server db.json`
