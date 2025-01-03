@@ -475,8 +475,8 @@ To pass string to orginal form use - `JSON.parse(value)`
       - Reject State : Used if asynchronous function call return nothing after making call that is known as reject state. `catch method`
 
       - Asycn-Await : To write promise much more eaiser, to avoid call back functions. if a function is asynchronous then only we can use await inside a function
-       - Async : makes a function return a promise
-       - Await : makes a function to wait for a promise
+        - Async : makes a function return a promise
+        - Await : makes a function to wait for a promise
       
 
 ### API(Application Programming Interface)
