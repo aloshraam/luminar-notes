@@ -714,6 +714,9 @@ AJAX (Asyncronous Javascript and XML) : Method to make API calls using JS
     - HTTP response will always return an object with predefined keys (data(//server response//), status)
     - Create a services folder inside src of your react app
 
+  ## Data Sharing between components in react
+    - `State Lifting` :  Data sharing is using props. We will create a state in common parent of data to be shared components, share state upadation function to one component and state to another component.
+
 # JSON server Creation
 
 1) Create a server folder to store json server
