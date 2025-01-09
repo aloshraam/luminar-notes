@@ -721,6 +721,48 @@ AJAX (Asyncronous Javascript and XML) : Method to make API calls using JS
 
 1) Create a server folder to store json server
 2) we have to create a package.json(npm configuration file) file inside server folder : use command -  `npm init -y `
-3) Install json server package in server folder to run json file, use commmand to insall json-server : `npm i json-server`
+3) Install json server package in server folder to run json file, use commmand to insall json-server : `npm i json-server` | to get a stable server use `npm i json-server@0.17.4`
 4) Create json(db.json) file for storing project data
 5) To run json file and available in browser port use command in server folder : `npx json-server db.json`
+
+
+# JSON server Deployment using NODE.js
+
+1) Create a index.js file inside the server folder
+2) Update scripts key of `package.json` file with `{"start": "node index.js"}` and remove `test` key from it
+3) Create a `.gitignore` File to add node_modules.
+4) Define steps to run db.json file using json-server in index.js
+    - import json-server
+    - create a server for media player app inorder to run our server app
+    - create a middleware to convert json data to js
+    - create a port for executing our app
+    - set up the path/route of db.json file so that client can make the request
+    - use middleware, route inside the server
+    - run the server using the given port
+    - To execute our app we have to use `node index.js` in terminal, so that we can see the output in localhost:3000
+
+
+# REDUX - State Management tool
+ - Its a Javascript Library for predictable and maintanable global state management
+ - Redux consist of 2 packagaes:
+    - `React-Redux` : officially reat binding for redux, 
+    - `Redux-toolkit` : The official, opinionated, batteries-included toolset for efficient Redux development
+ - for installing the packages use these commands : `npm install @reduxjs/toolkit`, `npm install react-redux`
+
+ ## Importanting API used in Redux   
+  - `configureStore()` : used to create store for redux.
+    - steps to create redux store in react app
+       1) create a foldeer `redux`, to define logic in src folder.
+       2) Inside redux folder create a `js file` for creating `redux store`
+    - To provide store to our react app use `provider` component of react-redux. Give this in `main.jsx`
+  -  `createReducer()`: used to create reducer, where we can store updated state inside store.
+  - `createAction()` : used to create action where we can define the logic to update the state, output of action automatically return to its reducer
+  - `createSlice()` : used to combine action and reducer in a single file. 
+    - Steps to create slice for react:
+      1) Create a js file for define slice
+
+ ## Hooks used in component for managing state using redux
+  - `useSelector(state=>state.reducer-name)` : used to select state from store in a component
+  - `useDispatch()` : used to execute an action from a component, Hook will return a function that is dispatcing an action in its argument when we call the function
+
+ 
