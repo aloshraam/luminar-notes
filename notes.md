@@ -652,6 +652,7 @@ AJAX (Asyncronous Javascript and XML) : Method to make API calls using JS
       - Important CSS styling react component Library
         - `Material UI` : `npm install @mui/material @emotion/react @emotion/styled`
       - React Bootstrap : `npm install react-bootstrap bootstrap`, Choose bootstrap theme inorder to apply bootstrap properly in react project. Use `https://bootswatch.com/` for selecting theme. Download `bootstrap.min.css` file of the theme and add that file inside project src folder. 
+      - Tailwind-css : `npm install -D tailwindcss postcss autoprefixer`, `npx tailwindcss init -p` , have to do more steps , visit this page : https://tailwindcss.com/docs/guides/vite
   
   ## Event Handling in React
     - syntax : event = {function call}
@@ -763,6 +764,6 @@ AJAX (Asyncronous Javascript and XML) : Method to make API calls using JS
 
  ## Hooks used in component for managing state using redux
   - `useSelector(state=>state.reducer-name)` : used to select state from store in a component
-  - `useDispatch()` : used to execute an action from a component, Hook will return a function that is dispatcing an action in its argument when we call the function
-
- 
+  - `useDispatch()` : used to execute an `action` from a component, Hook will `return a function` that is dispatcing an action in its argument when we call the function
+    - action without argument : `dispatch-funtion(actionName())`
+    - action with argument : `dispatch-function(actionName(arg1, ar2, ...))`, to access the arguments of action in slice reduce function it uses its second argument which is an object with two keys, `payload` and `type`. payload will give the value from action dispatched by component
