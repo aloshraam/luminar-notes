@@ -701,6 +701,8 @@ AJAX (Asyncronous Javascript and XML) : Method to make API calls using JS
        1) Render the entire react app inside the `browserRouter` component of react-router-dom library, provide this step inside main.jsx file.
        2) Inorder to set up path for component, make sure each component must be inside `Routes` component of react-route-dom library, provide this step inside `App.jsx` file
        3) To set uop path for component, use `Route` component of react-route-dom library, route component has attribute like `path` adn `element` inorder to route for component. All route components must be inside `Route` component
+     - `Dynammic Routing` : we can set up a dynamic / changing value in a url along `:` symbol, so react app will understand valur along with the `:`  is dynamic part of the url.
+     - To set up `page not found` url use path `*`, its path mus t be set up at the end of all URL in react app.
 
 
        `<Link> </Link>` can be used to switch to different webpages within the webpage. (Anchor tag is used to move to a different website outside our project eg: youtuve video links)
