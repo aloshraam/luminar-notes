@@ -763,6 +763,9 @@ AJAX (Asyncronous Javascript and XML) : Method to make API calls using JS
   - `createSlice()` : used to combine action and reducer in a single file. 
     - Steps to create slice for react:
       1) Create a js file for define slice
+  - `createAsyncThunk()` : used to make asyncronous call in an action in redux. It accepts 2 arguments, first is ation string(`slicename/actionname`), 2nd argument us a callback function it can retuen promise. It output can be 3 different types.
+      - `prending/fulfilled/rejected`
+      - `extraReducers` in slice can handle promise return action, because it has degine differnet cases to update slice state, 
 
  ## Hooks used in component for managing state using redux
   - `useSelector(state=>state.reducer-name)` : used to select state from store in a component
