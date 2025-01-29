@@ -573,7 +573,7 @@ AJAX (Asyncronous Javascript and XML) : Method to make API calls using JS
         - Every JSX tag must has a closing tag. If it has contents, then : `<starting tag>` content `</closing tag>`, If there is no content : `<starting tag> </closing tag>` or we can also use self closing tag (`<starting tags/>`) as well
          - Instead of atribute class we use `className` in JSX
          - Instead of attribute `for` we use `htmljsx` in JSX
-         - In JSX can directly pass JS code inside a curly braces, eg: {js code}
+         - In JSX can directly pass JS code inside a curly braces, eg: `{js code}`
 
   ## React app creation
 
@@ -684,7 +684,8 @@ AJAX (Asyncronous Javascript and XML) : Method to make API calls using JS
           
           ```
 
-          - `userRef(initial value)` : is a hook that lets you reference a value thats not needed fo rendering. Initialvalue is optional in useRef hook. It returns an objet with `current` key 
+          - `userRef(initial value)` : is a hook that lets you reference a value thats not needed fo rendering. Initialvalue is optional in useRef hook. It returns an objet with `current` key.
+          - `useParams()` : hook will return dynamic value of route associated with component.
 
         - `Custom hooks` : create a js file to define a specific function for a special task. Then we can export the function from the file. The function name must start with `use` keyword.
 
@@ -765,10 +766,56 @@ AJAX (Asyncronous Javascript and XML) : Method to make API calls using JS
       1) Create a js file for define slice
   - `createAsyncThunk()` : used to make asyncronous call in an action in redux. It accepts 2 arguments, first is ation string(`slicename/actionname`), 2nd argument us a callback function it can retuen promise. It output can be 3 different types.
       - `prending/fulfilled/rejected`
-      - `extraReducers` in slice can handle promise return action, because it has degine differnet cases to update slice state, 
+      - `extraReducers` in slice can handle promise return action, because it has designe differnet cases to update slice state, 
 
  ## Hooks used in component for managing state using redux
   - `useSelector(state=>state.reducer-name)` : used to select state from store in a component
   - `useDispatch()` : used to execute an `action` from a component, Hook will `return a function` that is dispatcing an action in its argument when we call the function
     - action without argument : `dispatch-funtion(actionName())`
     - action with argument : `dispatch-function(actionName(arg1, ar2, ...))`, to access the arguments of action in slice reduce function it uses its second argument which is an object with two keys, `payload` and `type`. payload will give the value from action dispatched by component
+
+# MONGODB - DATABASE
+  1) Database used to store and manage data permanently (MySQL, SQL, MsAccess, MongoDB, Oracle,...)
+  2) MongoDB : Is a NOSQL Database, data stores as JSON document `({"key" ; value})`, To store multiple json document is known as `collection` 
+  3) Difference bewtween SQL and MongoDB 
+
+                                    SQL                                                    MONGODB
+
+                                - Relational SQL DBMS                                  - Document Oriented NoSQL DB
+
+                                - Data Stored in table, every table must have rows     - Data Stored in Collections as JSON document
+                                and fixed colums
+
+                                - Uses fixed `schema`                                  - uses dynamic `schema`
+
+                                - Support rich set of data type                        - limited set of datatypes
+
+                                - Uses in traditional buisness app                     - Used in bigdata and real-time Apps
+
+                                - Optimised for complex join and transaction                - Optimized for scalability and performance
+
+  4) MongoDB in the following enviorment
+    - MongoDB Atlas : The fully managed service for MongoDB deployments in the cloud
+    - MongoDB Enterprice : The subscription-based, self-managed version of MongoDB. 
+    - MongoDB Community : The source-available, free-to-use, and self-managed version of MongoDB
+
+  5) MongoDB, mongosh :is a terminal used to write mongodb codes.
+  6) Collection : used to store JSON documents, to name a collection i=use small letter in its plural form.
+  7) MongoDB generate a unique value to identify each document in a collection using _id key its value is a hexadecimal number
+  8) `CRUD Operation performed in MongoDB`
+    - TO `get/read single document `from mongoDB collection : use `findOne({key:"value})`
+     which return the "entire document" when the key and value is present otherwise , a `null` 
+    - To `get/read all documents` from mongoDB collection : use `find()` which returns the all document present in the collection
+    - To insert a single document to MongoDB collection : use `insertOne({key : "value"})` 
+    - To insert multiple document to MongoDB collection : use `insertMany([{key:value}])`
+    - To get the total count of document in a collection : use `countDocuments()`
+    - To limit document while getting from a collectio n : use `limit(count)` // use `db.users.find().limit(count)`
+    - To skip documents while getting from a collection : use `skip(count)`
+    - To sort data while getting from a collection : use `sort({key : 1 : -1})`
+    - To get document after applying different query statements use `$` symbol : `$gt`/ `$gte` / `$lt` / `$lte` / `$eq` / `$neq` / `$exists`/ `$regex`
+    - To update a single document : `updateOne({key : value}, {$set : {key : value}})` , we can also update statements : `$set , $inc , $push, $pull`
+    - To update more than one document : use `updateMany()`
+    - To delete one document : `deleteOne : ({key : value})`
+    - To delete multiple values : use `deleteMany([key : value])`
+  9) `Aggregation` : used to combine/join two collection in mongoDb
+     - `$lookup`
