@@ -792,7 +792,7 @@ AJAX (Asyncronous Javascript and XML) : Method to make API calls using JS
 
                                 - Uses in traditional buisness app                     - Used in bigdata and real-time Apps
 
-                                - Optimised for complex join and transaction                - Optimized for scalability and performance
+                                - Optimised for complex join and transaction           - Optimized for scalability and performance
 
   4) MongoDB in the following enviorment
     - MongoDB Atlas : The fully managed service for MongoDB deployments in the cloud
@@ -800,8 +800,8 @@ AJAX (Asyncronous Javascript and XML) : Method to make API calls using JS
     - MongoDB Community : The source-available, free-to-use, and self-managed version of MongoDB
 
   5) MongoDB, mongosh :is a terminal used to write mongodb codes.
-  6) Collection : used to store JSON documents, to name a collection i=use small letter in its plural form.
-  7) MongoDB generate a unique value to identify each document in a collection using _id key its value is a hexadecimal number
+  6) `Collection` : used to store JSON documents, to name a collection use small letter in its `plural form`.
+  7) MongoDB generate a unique value to identify each document in a collection using` _id `key its value is a `hexadecimal number`
   8) `CRUD Operation performed in MongoDB`
     - TO `get/read single document `from mongoDB collection : use `findOne({key:"value})`
      which return the "entire document" when the key and value is present otherwise , a `null` 
@@ -819,3 +819,87 @@ AJAX (Asyncronous Javascript and XML) : Method to make API calls using JS
     - To delete multiple values : use `deleteMany([key : value])`
   9) `Aggregation` : used to combine/join two collection in mongoDb
      - `$lookup`
+        
+        - ```{
+            $lookup:
+              {
+                from: <collection to join>,
+                localField: <field from the input documents>,
+                foreignField: <field from the documents of the "from" collection>,
+                as: <output array field>
+              }
+          }
+          ```
+  
+# SERVER SIDE / BAACK-END 
+  Used to resolve client or front end request
+
+  ## Node.js
+
+  - provides aa runtime environment for js outside the browser
+   1) its a free open source, open-platform runtime envornment that lets us to create server ( used to resolve ,ultiple client request ), wed apps, command line tools or script.
+   2) Features : 
+      - Extremly Fast
+      - Aynchronous function
+      - Highly Scalable
+   3) Node js `Global objects` : objects can be shared throughout without importing it, eg : `process` object. `environmental variable` in process used to store system configuration or secret data of an application.
+   4) Node js module system : used to share data from one file to another using `CommonJsModule` system.
+    - `require(packagename/ filepath)` : to import data from a file/package.
+    - `module.exports` / `export keyword` to export data from a file
+    - Predefined / build-in modules in node js
+      - fs module : To handle file system of a computer
+      - HTTP module : used to create HTTP server
+      - HTTPS module : used to create HTTPS server 
+      - Events Module : used to manage user-defined events
+      - crypto module : 
+      
+   5) `Exection Model` : `Event driven`,` non blockung I/O model`, `optimized asyncronous task`
+   6) API Access : System has access to system level API (file system, network, process)
+   7) Working of Node.js : used to resolve client resquest and send the response while working single thread.
+      - non blocking I/O
+      - Asynchronous function 
+
+# Express JS 
+ Express is a node js framework used for server creation.
+ 1) Used in client server application , to create server with node.js features
+ 2) Steps to create an express server for resolving client request.
+  - Create a server folder for server application
+  - create `package.json` file inside server folder, use command : `npm init -y`
+  - `update` package.json file `script` key value as the following opject, `{"start" : node index.js}` and remove its test key value and from it.
+  - install packages needed to create node server app
+    - express package: used to create the server - `npm i express`
+    - `cors` package : used to enable `cross origin REsource sharing` - `npm i cors`
+    - `dotenv` package : used to load content `.env` file into process object - `npm i dotenv`
+    - create a `.env` file in server folder, which used to store enviromental variables of a project
+    - create a `.gitignore` file in server which is used to store file/folder to be ignored while adding to git
+    - Create `index.js` file to define express server for `resolving client request` from browser
+      - import express, dotenv, cors in `index.js` file
+      - create `express server` using express package
+      - use cors in our server-app to enable data sharing between different application.
+      - use `express.json()` in server app for passing json data from client request
+      - create a port for server app
+      - run the server app in specified port 
+      - run server application using command : `node index.js`
+      - To resolve HTTP request using ` express-server-name.httprequest('path',(req, res)=>{response object share server response to client})` 
+    - How to set up path/url for resolving client request in server
+      - Create a routes folder in `server folder` and create a `js file` inside routes folder for defing path / route corresponding  to client request.
+        - Steps to define path in js file
+          - import `express`
+          - Create an object for express Router class which is capable of routes in server.
+          - export object of express of router class
+          - import object of express router class and use router in server application
+          - to set up the route syntax  : 
+            - `RouterObject.httpRequestMethod("path",controller name)`
+    - To set up controller for server app : used to define the logic to resolve client request
+      - Create a controller folder in server app, and create a js file inside it for defining logic to resolve client request
+      - export rach controller logic from js file
+      - import controller in router.js file and use the controller in corresponding request
+      - syntax of controller:
+        - 
+        ```
+          controllerName = (request,response) =>{
+            using response object share server reponse to client
+          }
+        ```
+      
+# Mongoose 
