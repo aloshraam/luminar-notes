@@ -687,7 +687,11 @@ AJAX (Asyncronous Javascript and XML) : Method to make API calls using JS
           - `userRef(initial value)` : is a hook that lets you reference a value thats not needed fo rendering. Initialvalue is optional in useRef hook. It returns an objet with `current` key.
           - `useParams()` : hook will return dynamic value of route associated with component.
 
-        - `Custom hooks` : create a js file to define a specific function for a special task. Then we can export the function from the file. The function name must start with `use` keyword.
+          - `useNavigate()` : hook used to navigate from one page to another 
+
+        - `Custom hooks()` : create a js file to define a specific function for a special task. Then we can export the function from the file. The function name must start with `use` keyword.
+
+
 
   ## Form Handling in React
     There are 2 ways to manage data inside the form by a component
@@ -901,5 +905,39 @@ AJAX (Asyncronous Javascript and XML) : Method to make API calls using JS
             using response object share server reponse to client
           }
         ```
-      
-# Mongoose 
+    - To set up database connection from nodejs server
+       - create a folder for define db connection in server folder
+       - inside the folder create js file to define connection steps
+         - import mongoose
+         - get the db connetion string
+         - To connect with MongoDB use connect method of mongoose pass connection string as argument it will return promise
+         - import connection js file in index.js
+    - To setup model fro communication for communicating node js and mongoDB
+      - create model folder in server folder
+      - create js file inside the folder for creating model
+        - import the mongoose 
+        - create schema for model
+        - create model using that schema
+        - export model
+
+
+# MONGOOSE 
+
+Node js package for mongo DB data modelling
+1) Mongoose is an ODM(Object Data Modelling) library for MongoDB which helps to create and manage mongoDB documents with nodeJS
+2) Install Mongoose in nodeJS app: `npm i mongoose`
+3) Schema : A schema defines the structure of your collection documents. A mongoose schema maps directly to a mongoDB collection. To create a scheme  we have to create an object for mongoose `schema` class
+4) Models takes our schema and apply it to each docuements in its collection. Create model in mongoose , use model method, syntax : `model("modelName",schema)`
+5) In node js application controller will communicate with inorder to manage data in mongoDB.
+6) CRUD operations in Mongoose
+  - To create a document using mongoose in mongoDB, create an object of model with same order of schema, after that we have to save the object inorder to apprear changes in mongoDB using `save()` method.
+  - `GET / read` : `find()` , `findOne()` , `findById()`
+  - `Update` a Document : `updateOne()` , `updateMany()`, `findByIdandUpdate(_id of document, update querry)`
+  - Delete a document : `deleteOne()` , `deleteMany()` , `findByIdandDelete(_id of document)`
+7) `Mongoose query helpers` : `skip()` , `sort()` , `limit()`...
+
+# JSON WEBTOKEN
+NodeJS package for autherization (learn autheration and authentication)
+1) install jsonWebToken library : `npm i jsonwebtoken`
+2) Token generation using jwt : `sign(payload, password)`
+    - `payload` : used to store data inside token creation
