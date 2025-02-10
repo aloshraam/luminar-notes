@@ -874,9 +874,12 @@ AJAX (Asyncronous Javascript and XML) : Method to make API calls using JS
     - express package: used to create the server - `npm i express`
     - `cors` package : used to enable `cross origin REsource sharing` - `npm i cors`
     - `dotenv` package : used to load content `.env` file into process object - `npm i dotenv`
-    - create a `.env` file in server folder, which used to store enviromental variables of a project
-    - create a `.gitignore` file in server which is used to store file/folder to be ignored while adding to git
-    - Create `index.js` file to define express server for `resolving client request` from browser
+    - `mongoose` package : used to communicate between node.js app and mongoDB.
+    - `jsonwebtoken` : used for authorization.
+    - `multer`  : used for handling form-data/multi part data
+  - create a `.env` file in server folder, which used to store enviromental variables of a project
+  - create a `.gitignore` file in server which is used to store file/folder to be ignored while adding to git
+  - Create `index.js` file to define express server for `resolving client request` from browser
       - import express, dotenv, cors in `index.js` file
       - create `express server` using express package
       - use cors in our server-app to enable data sharing between different application.
@@ -919,6 +922,17 @@ AJAX (Asyncronous Javascript and XML) : Method to make API calls using JS
         - create schema for model
         - create model using that schema
         - export model
+    - To set up Authorization using `Middleware`
+      - Create a folder for middleware in that create a js file
+      - use middleware in route before controller
+    - To handle multipart form data requst using multer
+      - create js file inside middleware folder
+      - import multer
+      - create `upload` folder in server folder fr storing uploadded files.
+      - define storage object using diskstorage method of in js file
+      - created multer instance using the storage and export it from that file, use it in route
+
+
 
 
 # MONGOOSE 
@@ -940,4 +954,23 @@ Node js package for mongo DB data modelling
 NodeJS package for autherization (learn autheration and authentication)
 1) install jsonWebToken library : `npm i jsonwebtoken`
 2) Token generation using jwt : `sign(payload, password)`
-    - `payload` : used to store data inside token creation
+    - `payload` : used to store data inside token creation.
+3) `Token verify using JWT` : verify(token, password) `return a response if token is verfied else error`
+
+# MIDDLEWARE
+ Node js library for authorization
+ - Used to controll request: response cycle in server, before resolving a request server can perform any task using (authorization, data fromat changing etc....) using mmiddleware
+ - Middleware are function with 3 arguments, they are `request, response, next` . Here request will give you client request, response object will give response from server to client, `next method` used to comtrol the request
+ - Middleware can be of `2 types`: 
+    - `Application Specific middleware` : middleware will active for all client request.
+    - `Router specific middleware` : middleware will active for only selected route/path.
+
+# Multer
+Node js middleware for handling multipart/form-data
+- Multer is a node.js middleware for handling multipart/form-data, which is primarily used for uploading files.
+- Multer adds a body object and a file or files object to the request object. The body object contains the values of the text fields of the form, the file or files object contains the files uploaded via the form.
+- intall the `multer` : `npm i multer`
+- multer can used to define storage space for uploaded file
+
+
+
