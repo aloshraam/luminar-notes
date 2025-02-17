@@ -724,6 +724,23 @@ AJAX (Asyncronous Javascript and XML) : Method to make API calls using JS
 
   ## Data Sharing between components in react
     - `State Lifting` :  Data sharing is using props. We will create a state in common parent of data to be shared components, share state upadation function to one component and state to another component.
+    - using `REDUX` Library
+    - using `Context API`
+
+# Content API
+ Data sharing method in react
+ - Avoid props drilling while sharing data between components
+ - to share data it uses context of react, with the help of context we can share data inside 
+ - Steps to perform data sharing using context API
+  - Create  a contexy : use `contextMethod()` method in react
+  - Use providers of contenxt to share data to the component, `provider` value key will help contenxt to share data, we can pass value as object
+  - To access context from component : use  useContext Hook, `useContext(context-name)` we give data shared via context
+- Create a `folder for context`
+  - inside the folder creact a react component for perform data sharing using Context.
+  - create context and export it 
+  - use contenxt provider provide the state as its value to the component `children`
+  - use the `children` props inside the component of react app inside `main.jsx` file
+
 
 # JSON server Creation
 
@@ -930,7 +947,8 @@ AJAX (Asyncronous Javascript and XML) : Method to make API calls using JS
       - import multer
       - create `upload` folder in server folder fr storing uploadded files.
       - define storage object using diskstorage method of in js file
-      - created multer instance using the storage and export it from that file, use it in route
+      - created multer instance using the storage and export it from that file, use it in route.
+    - Server has to use `express.static(stattic file / folder path)` to export the static file or folder from server
 
 
 
