@@ -990,5 +990,46 @@ Node js middleware for handling multipart/form-data
 - intall the `multer` : `npm i multer`
 - multer can used to define storage space for uploaded file
 
+# Angular - Advanced front-end technology
+- Open source web app framework developed by Google, used to build single page application
+- Official Website - `angular.dev`
+- Angular installation :
+  - install `angular CLI` : `npm i -g @angular/cli`
+  - To check the version of angular : `ng v`
+- Angular project creation : `ng new project-name`, choose the style sheet and ssr
+- To run the project : `ng serve / ng s` inside angular project folder, To view angular project in browser : `http://localhost:4200/`
+- Angular project files and folder structure
+    - `tsconfig.spec.json`, `tsconfig.json`, `tsconfig.app.json` files : used for typescript installation and testing.
+    - `package.json` file : npm configuration file
+    - `package-lock.json` file : version details of package installed using npm
+    - `angular.json` : Angular project configuration file.
+    - `node_modules` folder : used to hold of copies of installed pacjages using npm in your project
+    - `public` folder : can be accessed by all files inside the project
+    - `src` folder : project related contents.
+         - `styles.css` file : used to style globally to all the html pages
+         - `main.ts` : used to initially render angular components in UI or browser of the project, entry point file which bootstrap / render root component into html page angular app
+         - `index.html` : entry point for UI of angular app, only one component selecto will be there, thats the root component of angular app.
+    - `app folder` : `full angular app related contents`
+         - `app.routes.ts` file : used to define route for each component in angular applications.
+         - `app.config.ts`file : to enable routing or other features  in angular app od thath all components can use it
+         - `App` component : is the root component of anular app which consist of `4 files`: (`ts, spec.ts, html, css file`)
+            - `ts` file is considered as component file
+              - selector : used to display a component html view in browser, used selector as a tag in html page
+              - imports array : contents in import array are used in html page
+
+- Decorators in Angular : contents along with @ symbol are known as decorators, used provide metadatas(data insdie another data)
+
+- Components : used to display contents in browser
+  - to create angular component : `ng g c component-name` (NO capital letters and spaces, use hyphin)
+
+- Data binding : data sharing withi the component
+  - One way binding : Data sharing from one file to another at a time
+    - `ts(component)` file to `html (view)` file
+        - `Interpolation` : `{{ts class property}}` inide the html page
+        - `property binding` : `[atribute-name]` = "property-name"
+    
+    - html to ts file
+      - Event Binding
+
 
 
