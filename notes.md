@@ -1017,10 +1017,10 @@ Node js middleware for handling multipart/form-data
               - selector : used to display a component html view in browser, used selector as a tag in html page
               - imports array : contents in import array are used in html page
 
-- Decorators in Angular : contents along with @ symbol are known as decorators, used provide metadatas(data insdie another data)
+- Decorators in Angular : contents along with `@` symbol are known as decorators, used provide metadatas(data insdie another data)
 
 - Components : used to display contents in browser
-  - to create angular component : `ng g c component-name` (NO capital letters and spaces, use hyphin)
+  - to create angular component : `ng g c component-name` (NO capital letters and spaces, use hyphin) in terminal
 
 - Data binding : data sharing withi the component
   - One way binding : Data sharing from one file to another at a time
@@ -1029,7 +1029,80 @@ Node js middleware for handling multipart/form-data
         - `property binding` : `[atribute-name]` = "property-name"
     
     - html to ts file
-      - Event Binding
+      - Event Binding(eventname) = `function-call($event)` beacause `$event` will give you the event occur in DOM
+      - Event Binding using template referenec variable : `(eventname) = "functionName(template reference varaiable)"`, set template reference variable `#variableName` to a tag, will gove you the tag while binding the function.
+
+    - Two Way data Binding :  use ngModel
+
+- Angular Directives : used to modify behavior of HTML elemts or attributes or properties
+    - 3 types Directives
+        - `Compoenent Directives` : which is used to display contents in HTML page.
+          eg : component selectors
+
+        - `Attribute Directives` : used to change the style of HTMl elemnts
+          - `ngClass` : import ngClass in inport array og component, used to apply class of style to html element
+        
+        - `Structural Directives` : used to add/remove html elements
+            - `*ngIf`
+            - `*ngFor`
+            - `*ngSwitch`
+
+    - ngModel Directives : used to get values from tag, import `formsModule` in the component array, to `[(ngModek)] = "class property"`
+
+    - ngForm Directive : used to get or controll properties of form tag
+
+- `Control Flow statements` : simmilar to structuaral directives, no need to import are used in Component html view
+    - `@if`, `@else`, `@else if`, `@switch`, `@for`
+  
+- Pipes : used to convert one data to another format
+  - Synatx : `data to be converted | pipe name : [options]`
+  - Different pipes : 
+
+    - build in Pipes : date, currency, lowerCase, upperCase
+    - Custom Pipes : `ng g p pipe-folder/pipe-name`, define logic to convert to transform data
+
+- `Service` : used to share common logic between different components in an angular app
+  - create service : `ng g s service-folder/service-name`
+
+- `Dependency injection` : used to access properties or functions of a class to another class, Can only be performed only between a component and service or component and a predefined classn in angular. DI is performed inside the constructor argument of a class
+  - Syntax : constructor(access-specifiers variable-name : dependent-class-name){...}
+
+## Asynchronous function handling in react in typescript :
+ using `observables` to handle asynchronous function, observable cann resolve multiple asynchronous function where as promise can only resolve one function at a time, `Angular RxJs library ` is used to resolve asynchronous function.
+  - To resolve Observables to get response angular uses `subscribe` method, Subscribe method argument can be 2 types : -`callback function` where its argument will give you the response, -  Other-wise we can use `Object`: Next key will give the success response and error key will give error response
+
+- API call  : `HttpClient` class method will return observable
+    - import `provideHttpClient` in `app.config.ts` file, also provide the same
+
+- `Interface` : used to describe customized data-type in project, command : `ng g i folder-name/interface-name`
+
+- Angular component lifecycle / lifecycle hooks / methods : we can use hooks in components without importing
+  - There are 4 lifecycle phases
+    - Creation phase : Runs when angular instatiates the component
+    - Change detection phase : 
+        - `ngOnInit` : Runs when angular instatiates has initialized all the components input
+        - `ngDoCheck` : Runs every time this component is checked for changes.
+        - `ngAfterContentInit` : Runs once agter the component content has been initialized
+        - `ngAfterContentChecked` : Runs every time this component has been checked for changes
+        - `ngAfterViewInit` : Runs once fter the component's view has been checked fot initialized
+        - `ngAfterViewChecked` : Runs once fter the component's view has been checked for changes
+
+    - rendering phase :  search on the offical angular pages for more
+
+    - destructing phase : 
 
 
+
+
+- Parent - child data sharing
+    - parent to child sharing : only properties of parent can share with child . To access parent data in child , first child should create property and it uses input decorators, input decorators is used to get data from parent in child
+    - child to parent ssharing
+
+- Form handling 
+  - Template driven forms : first design in html , assign form data to component properties, use ngForm, ngModel directives to manage template driven forms
+  - Model driven forms : First create model for form inside component class
+    - eg : Reactive forms : import `reactFormModule` in component import array, `FormBuilder` class consit of reactive form build in methods. Reactive forms constits of :    
+      - `Form Group` : Corresponding ti form tag,
+      - `Form Array` : Form input to be stored as array
+      - `Form control` : used to link html input tag with form group    
 
